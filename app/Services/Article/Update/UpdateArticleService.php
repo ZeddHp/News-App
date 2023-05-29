@@ -2,12 +2,14 @@
 
 namespace App\Services\Article\Update;
 
-use App\Models\Article\ArticleRepository;
+use App\Models\Article;
+use App\Repositories\Article\IArticleRepository;
+
 class UpdateArticleService
 {
-    private ArticleRepository $articleRepository;
+    private IArticleRepository $articleRepository;
 
-    public function __construct(ArticleRepository $articleRepository)
+    public function __construct(IArticleRepository $articleRepository)
     {
         $this -> articleRepository = $articleRepository;
     }
