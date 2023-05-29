@@ -1,14 +1,22 @@
 <?php declare(strict_types=1);
 
 
+use App\Core\Renderer;
+use App\Core\Router;
+use App\Core\Session;
+
 require_once '../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__, 2));
+session_start();
+
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__. "/../"));
 $dotenv->load();
 
-$routes = require_once dirname(__DIR__, 2) . '/routes.php';
+$routes = require_once '../routes.php';
 $response = Router::route($routes);
 $renderer = new Renderer();
 
 echo $renderer->render($response);
+
+Session::unflash();
 

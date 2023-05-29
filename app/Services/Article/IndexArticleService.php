@@ -2,12 +2,14 @@
 
 namespace App\Services\Article;
 
+use App\Repositories\Article\IArticleRepository;
+
 class IndexArticleService
 {
-    private ArticleRepository $articleRepository;
-    private UserRepository $userRepository;
+    private IArticleRepository $articleRepository;
+    private IUserRepository $userRepository;
 
-    public function __construct(ArticleRepository $articleRepository, UserRepository $userRepository)
+    public function __construct(IArticleRepository $articleRepository, IUserRepository $userRepository)
     {
         $this -> articleRepository = $articleRepository;
         $this -> userRepository = $userRepository;

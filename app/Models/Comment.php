@@ -1,53 +1,75 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace App\Models;
 
 class Comment
 {
-    private int $postId;
-    private int $id;
-    private string $name;
-    private string $email;
-    private string $body;
+    private int $articleId;
+    private string $title;
+    private string $content;
+    private ?string $email;
+    private int $userId;
+    private ?User $user = null;
+    private ?int $id = null;
 
     public function __construct(
-        int $postId,
-        int $id,
-        string $name,
-        string $email,
-        string $body
+        int    $articleId,
+        string $title,
+        string $content,
+        int $userId,
+        string $email = null
     )
     {
-        $this -> postId = $postId;
-        $this -> id = $id;
-        $this -> name = $name;
-        $this -> email = $email;
-        $this -> body = $body;
+        $this->articleId = $articleId;
+        $this->title = $title;
+        $this->content = $content;
+        $this->userId = $userId;
+        $this->email = $email;
     }
 
-    public function getPostId(): int
+    public function getArticleId(): int
     {
-        return $this -> postId;
+        return $this->articleId;
     }
 
     public function getId(): int
     {
-        return $this -> id;
+        return $this->id;
     }
 
-    public function getName(): string
+    public function getTitle(): string
     {
-        return $this -> name;
+        return $this->title;
     }
 
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
-        return $this -> email;
+        return $this->email;
     }
 
-    public function getBody(): string
+    public function getContent(): string
     {
-        return $this -> body;
+        return $this->content;
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->userId;
+    }
+
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 
 }

@@ -2,12 +2,12 @@
 
 namespace App\Services\Article\Delete;
 
-use App\Repositories\Article\ArticleRepository;
+use App\Repositories\Article\IArticleRepository;
 class DeleteArticleService
 {
-    private ArticleRepository $articleRepository;
+    private IArticleRepository $articleRepository;
 
-    public function __construct(ArticleRepository $articleRepository)
+    public function __construct(IArticleRepository $articleRepository)
     {
         $this -> articleRepository = $articleRepository;
     }

@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Doctrine\Common\Cache\Cache;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use App\Cache;
+
 
 use stdClass;
 class JsonPlaceholderArticleRepository implements IArticleRepository
@@ -79,7 +79,7 @@ class JsonPlaceholderArticleRepository implements IArticleRepository
         }
         $response = $this -> client -> get($url . $id);
         $content = $response -> getBody() -> getContents();
-        Cache::save($key, $content);
+        //Cache::save($key, $content);
         return $content;
     }
 }
